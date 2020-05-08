@@ -1,8 +1,7 @@
-# easy-VQA-keras
+# VQA keras
 
-A Keras implementation of a simple Visual Question Answering (VQA) architecture, using the [easy-VQA](https://github.com/vzhou842/easy-VQA) dataset.
+A Keras implementation of a simple Visual Question Answering (VQA) architecture, using the shape dataset
 
-Methodology described in the official [blog post](https://victorzhou.com/blog/easy-vqa/).
 
 ## Usage
 
@@ -11,8 +10,8 @@ Methodology described in the official [blog post](https://victorzhou.com/blog/ea
 First, clone the repo and install the dependencies:
 
 ```shell
-git clone https://github.com/vzhou842/easy-VQA-keras.git
-cd easy-VQA-keras
+git clone https://github.com/Utsavjain4561/Visual-Question-Answering.git
+cd VQA
 pip install -r requirements.txt
 ```
 
@@ -56,14 +55,13 @@ Optional arguments:
 ```
 
 The `--big-model` flag trains a slightly larger model, that we
-used to train a 99.5% accuracy model used in the following [live demo](https://easy-vqa-demo.victorzhou.com/).
-
-Furthermore, instead of using the official [easy-vqa package](https://pypi.org/project/easy-vqa/), you generate your own dataset using [the easy-VQA repo](https://github.com/vzhou842/easy-VQA) and use that instead.
+used to train a 97.5% accuracy model used in the following [live demo](http://visualquestionbot.herokuapp.com/).
+Generate your own dataset and follow the below procedure
 After following the instructions in that repo, just copy the `/data` folder into
 the root directory of this repository, so that your files look like this:
 
 ```shell
-easy-VQA-keras/
+VQA/
 ├── data/
   ├── answers.txt
   ├── test/
@@ -74,7 +72,7 @@ easy-VQA-keras/
 └── train.py
 ```
 
-For the 99.5% accuracy model, we used a custom dataset generated with double the images/questions
+For the 97.5% accuracy model, we used a custom dataset generated with double the images/questions
 as the official dataset (set `NUM_TRAIN` and `NUM_TEST` to 8000 and 2000,
 respectively, for the `easy-VQA` repo).
 
@@ -87,3 +85,12 @@ In addition to the training script, we have three other files:
 - `model.py`, where the model architecture is specified
 - `prepare_data.py`, which reads and processes the data, either using the
   [easy-vqa package](https://pypi.org/project/easy-vqa/) or a custom data directory
+
+## Result
+
+### Comparing Original Approach  with Approach in VQA
+![alt text](compare_accuracy.png "Accuracy")
+### Original Approach Accuracy vs Number Of Samples
+![alt text](original_accuracy.png "Original")
+### VQA Approach Accuracy vs Number Of Samples
+![alt text](best_accuracy.png "VQA")
